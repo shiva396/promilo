@@ -1,6 +1,6 @@
 # promilo
 
-Modern
+Modern UI application.
 
 ## Getting Started
 
