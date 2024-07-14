@@ -15,7 +15,13 @@ class _HomeSCreenState extends State<HomeSCreen> {
     var height = MediaQuery.of(context).size.height;
     var width = MediaQuery.of(context).size.width;
     return Scaffold(
+        backgroundColor: UIcolor.bg,
         appBar: AppBar(
+          shape: Border(bottom: BorderSide(color: Colors.black12, width: 1)),
+          foregroundColor: UIcolor.bg,
+          scrolledUnderElevation: 0,
+          surfaceTintColor: Colors.transparent,
+
           leading: IconButton(
               onPressed: () {},
               icon: const Icon(
@@ -23,7 +29,7 @@ class _HomeSCreenState extends State<HomeSCreen> {
                 color: UIcolor.themecolor,
               )),
           backgroundColor: UIcolor.bg,
-          elevation: 20,
+          // elevation: 10,
           // foregroundColor: Colors.grey,
           title: UItext.txt("Individual Meetup", 20, FontWeight.w900),
         ),

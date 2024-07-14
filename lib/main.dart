@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:promilo/pages/description.dart';
-import 'package:promilo/pages/home.dart';
 import 'package:promilo/pages/login.dart';
-import 'package:promilo/utils/theme.dart';
+
 
 void main() {
   runApp(const MyApp());
@@ -16,7 +14,11 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
-        scaffoldBackgroundColor: UIcolor.bg,
+        // colorScheme: ColorScheme.light(onPrimary: UIcolor.bg),
+        useMaterial3: true,
+        // scaffoldBackgroundColor: UIcolor.bg,
+        // appBarTheme: AppBarTheme(
+            // backgroundColor: UIcolor.bg, foregroundColor: UIcolor.bg),
       ),
       home: const LoginScreen(),
     );

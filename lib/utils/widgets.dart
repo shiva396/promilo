@@ -10,6 +10,7 @@ import 'package:promilo/utils/theme.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:share_plus/share_plus.dart';
 
+//Implemenation of search bar
 Widget searchBar(BuildContext context, height, width) {
   return Container(
     width: width,
@@ -285,6 +286,7 @@ Widget meetupCard(BuildContext context, width, height) {
   return Container();
 }
 
+//BottomNavigation bar reusable widget for both homeScreen and descriptionScreen
 Widget bottomNavigationBar(BuildContext context, width, height) {
   List<BottomNavigationBarItem> icons = [
     BottomNavigationBarItem(
@@ -339,6 +341,8 @@ Widget bottomNavigationBar(BuildContext context, width, height) {
         ))
   ];
   return BottomNavigationBar(
+    
+      elevation: 1,
       currentIndex: 2,
       selectedItemColor: Color.fromARGB(255, 0, 255, 251),
       // unselectedLabelStyle: TextStyle(color: Color.fromARGB(255, 0, 255, 251)),
@@ -357,6 +361,7 @@ Widget bottomNavigationBar(BuildContext context, width, height) {
       ]);
 }
 
+//Fitting image to give border radius
 Widget imageFitContainer(path, height) {
   return Container(
       height: height * 0.45,
@@ -365,6 +370,7 @@ Widget imageFitContainer(path, height) {
           image: DecorationImage(image: AssetImage(path), fit: BoxFit.cover)));
 }
 
+//Global variables
 int currentIndex = 0;
 
 List<String> paths = [
@@ -374,6 +380,8 @@ List<String> paths = [
   "assets/d4.jpg",
   "assets/d5.jpg",
 ];
+
+//Implementing slider with overlay of dot indicator
 Widget sliderWithOverlayDotIndicator(BuildContext context, width, height) {
   List<Widget> images = [
     imageFitContainer(paths[0], height),
@@ -431,6 +439,7 @@ Widget sliderWithOverlayDotIndicator(BuildContext context, width, height) {
   });
 }
 
+//To slide and picture sharing widget.
 Widget shareCardSlider(BuildContext context, width, height) {
   return Stack(
     children: [
@@ -480,7 +489,7 @@ Widget shareCardSlider(BuildContext context, width, height) {
                     ),
                     GestureDetector(
                       onTap: () async {
-                        shareIt(context, [currentIndex]);
+                        shareIt(context, paths[currentIndex]);
                       },
                       child: const Icon(
                         Icons.share_outlined,
@@ -504,15 +513,18 @@ Widget shareCardSlider(BuildContext context, width, height) {
   );
 }
 
-void shareIt(BuildContext context, Path) async {
-  final ByteData bytes = await rootBundle.load('assets/d1.jpg');
+//Implementation of share feature
+void shareIt(BuildContext context, imagePath) async {
+  final ByteData bytes = await rootBundle.load(imagePath);
   final Uint8List list = bytes.buffer.asUint8List();
   final tempDir = await getTemporaryDirectory();
-  final file = await File('${tempDir.path}/d1.jpg').create();
+  print(tempDir);
+  final file = await File('${tempDir.path}/dreamplace.jpg').create();
   file.writeAsBytesSync(list);
-  Share.shareFiles([file.path], text: 'Great picture');
+  Share.shareFiles([file.path], text: 'Hey buddy, is this your dream place?');
 }
 
+//Implementation of the row for rating, favorite, bookmark
 Widget interactRow(BuildContext context, width, height) {
   return Container(
     padding: const EdgeInsets.only(top: 15, bottom: 20),
@@ -591,6 +603,7 @@ Widget interactRow(BuildContext context, width, height) {
   );
 }
 
+//Implementation of card edge cutting
 Widget meetCardFitContainer(path, height) {
   return Container(
       height: height * 0.45,
@@ -599,6 +612,7 @@ Widget meetCardFitContainer(path, height) {
           image: DecorationImage(image: AssetImage(path), fit: BoxFit.cover)));
 }
 
+//Meet section scroll enabler implementation
 Widget meetCardsSlider(BuildContext context, width, height) {
   List<String> cardnumber = ["01", "02", "03", "04", "05"];
 
@@ -606,7 +620,7 @@ Widget meetCardsSlider(BuildContext context, width, height) {
     itemCount: cardnumber.length,
     itemBuilder: (BuildContext context, int index, int realIndex) {
       return Transform.translate(
-        offset: const Offset(-95, 0.0),
+        offset: const Offset(-90, 0.0),
         child: Container(
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(12.0),
@@ -636,6 +650,7 @@ Widget meetCardsSlider(BuildContext context, width, height) {
   );
 }
 
+//Implementation of Meetcard design
 Widget meetCard(BuildContext context, width, height, cardnumber) {
   return Stack(
     alignment: Alignment.bottomRight,

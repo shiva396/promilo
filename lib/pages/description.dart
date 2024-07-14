@@ -19,7 +19,12 @@ class _DescriptionScreenState extends State<DescriptionScreen> {
     var height = MediaQuery.of(context).size.height;
     var width = MediaQuery.of(context).size.width;
     return Scaffold(
+      backgroundColor: UIcolor.bg,
       appBar: AppBar(
+        shape: Border(bottom: BorderSide(color: Colors.black12, width: 1)),
+        foregroundColor: UIcolor.bg,
+        scrolledUnderElevation: 0,
+        surfaceTintColor: Colors.transparent,
         leading: IconButton(
             onPressed: () {
               Navigator.push(
@@ -33,7 +38,6 @@ class _DescriptionScreenState extends State<DescriptionScreen> {
             )),
         backgroundColor: UIcolor.bg,
         elevation: 20,
-        // foregroundColor: Colors.grey,
         title: UItext.txt("Description", 20, FontWeight.w900),
       ),
       body: SafeArea(
