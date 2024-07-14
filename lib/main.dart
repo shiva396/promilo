@@ -15,10 +15,10 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
-          scaffoldBackgroundColor: UIcolor.bg,
-          // appBarTheme: const AppBarTheme(
-          //   color: UIcolor.bg,
-          // )
+        scaffoldBackgroundColor: UIcolor.bg,
+        // appBarTheme: const AppBarTheme(
+        //   color: UIcolor.bg,
+        // )
       ),
       home: const HomeSCreen(),
     );

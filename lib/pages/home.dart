@@ -1,5 +1,3 @@
-import 'dart:nativewrappers/_internal/vm/lib/core_patch.dart';
-
 import 'package:flutter/material.dart';
 import 'package:promilo/pages/home_widgets.dart';
 import 'package:promilo/utils/theme.dart';
@@ -12,16 +10,6 @@ class HomeSCreen extends StatefulWidget {
 }
 
 class _HomeSCreenState extends State<HomeSCreen> {
-
-  
-
-  int newState(int currentIndex, int index) {
-    setState(() {
-      currentIndex = index;
-    });
-    return currentIndex;
-  }
-
   @override
   Widget build(BuildContext context) {
     var height = MediaQuery.of(context).size.height;
@@ -52,8 +40,18 @@ class _HomeSCreenState extends State<HomeSCreen> {
                 context,
                 height,
                 width,
-                // newState(),
               ),
+              SizedBox(
+                height: 20,
+              ),
+              Align(
+                  alignment: Alignment.centerLeft,
+                  child: UItext.txt(
+                      "Trending Popular People", 16, FontWeight.w600)),
+              SizedBox(
+                height: 10,
+              ),
+              peopleCardsSlider(context, width, height)
             ],
           ),
         ),
