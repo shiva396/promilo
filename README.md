@@ -1,15 +1,15 @@
 # promilo
 
-Modern 
+Modern
 
 ## Getting Started
 
-Login credentials 
+Login credentials
 
-Email : test@stanch.io
-password : Test@123
+Email : test@stanch.io || password : Test@123
 
 Hardly found way to implement the Share feature,
+
 ```
 void shareIt(BuildContext context, Path) async {
   final ByteData bytes = await rootBundle.load('assets/d1.jpg');
