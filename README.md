@@ -1,16 +1,22 @@
 # promilo
 
-A new Flutter project.
+Modern 
 
 ## Getting Started
 
-This project is a starting point for a Flutter application.
+Login credentials 
 
-A few resources to get you started if this is your first Flutter project:
+Email : test@stanch.io
+password : Test@123
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+Hardly found way to implement the Share feature,
+```
+void shareIt(BuildContext context, Path) async {
+  final ByteData bytes = await rootBundle.load('assets/d1.jpg');
+  final Uint8List list = bytes.buffer.asUint8List();
+  final tempDir = await getTemporaryDirectory();
+  final file = await File('${tempDir.path}/d1.jpg').create();
+  file.writeAsBytesSync(list);
+  Share.shareFiles([file.path], text: 'Great picture');
+}
+```

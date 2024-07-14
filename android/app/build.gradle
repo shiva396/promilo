@@ -3,6 +3,10 @@ plugins {
     id "kotlin-android"
     // The Flutter Gradle Plugin must be applied after the Android and Kotlin Gradle plugins.
     id "dev.flutter.flutter-gradle-plugin"
+    
+   
+    
+    
 }
 
 def localProperties = new Properties()
@@ -22,7 +26,9 @@ def flutterVersionName = localProperties.getProperty("flutter.versionName")
 if (flutterVersionName == null) {
     flutterVersionName = "1.0"
 }
-
+ext {
+    kotlin_version = '1.8.10' // Specify the Kotlin version to use
+}
 android {
     namespace = "com.example.promilo"
     compileSdk = flutter.compileSdkVersion
@@ -50,9 +56,16 @@ android {
             // Signing with the debug keys for now, so `flutter run --release` works.
             signingConfig = signingConfigs.debug
         }
+        
     }
 }
 
 flutter {
     source = "../.."
+}
+
+dependencies {
+
+   implementation(platform("org.jetbrains.kotlin:kotlin-bom:1.8.0"))
+ 
 }

@@ -75,6 +75,7 @@ class _LoginScreenState extends State<LoginScreen> {
                     height: 5,
                   ),
                   TextFormField(
+                    cursorColor: const Color.fromARGB(255, 0, 126, 204),
                     controller: emailController,
                     onChanged: (value) {
                       setState(() {
@@ -87,6 +88,12 @@ class _LoginScreenState extends State<LoginScreen> {
                       });
                     },
                     decoration: const InputDecoration(
+                      focusedBorder: OutlineInputBorder(
+                          borderSide: BorderSide(
+                              color: const Color.fromARGB(255, 0, 126, 204)),
+                          borderRadius:
+                              BorderRadius.all(Radius.circular(12.0))),
+                      focusColor: Colors.black54,
                       border: OutlineInputBorder(
                           borderSide: BorderSide(width: 5.0),
                           borderRadius:
@@ -126,6 +133,7 @@ class _LoginScreenState extends State<LoginScreen> {
                     height: 5,
                   ),
                   TextFormField(
+                    cursorColor: const Color.fromARGB(255, 0, 126, 204),
                     controller: passwordController,
                     obscureText: true,
                     onChanged: (value) {
@@ -139,6 +147,12 @@ class _LoginScreenState extends State<LoginScreen> {
                       });
                     },
                     decoration: const InputDecoration(
+                      focusedBorder: OutlineInputBorder(
+                          borderSide: BorderSide(
+                              color: const Color.fromARGB(255, 0, 126, 204)),
+                          borderRadius:
+                              BorderRadius.all(Radius.circular(12.0))),
+                      focusColor: Colors.black54,
                       border: OutlineInputBorder(
                           borderSide: BorderSide(width: 5.0),
                           borderRadius:
@@ -156,6 +170,8 @@ class _LoginScreenState extends State<LoginScreen> {
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
                           Checkbox(
+                              activeColor:
+                                  const Color.fromARGB(255, 0, 126, 204),
                               value: checkBoxValue,
                               onChanged: (newValue) {
                                 setState(() {

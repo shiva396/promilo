@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:promilo/pages/description.dart';
 import 'package:promilo/pages/home.dart';
 import 'package:promilo/pages/login.dart';
 import 'package:promilo/utils/theme.dart';
@@ -16,11 +17,8 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
         scaffoldBackgroundColor: UIcolor.bg,
-        // appBarTheme: const AppBarTheme(
-        //   color: UIcolor.bg,
-        // )
       ),
-      home: const HomeSCreen(),
+      home: const DescriptionScreen(),
     );
   }
 }
